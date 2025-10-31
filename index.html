@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>내 사이트 이름 — 간단한 원페이지</title>
-  <meta name="description" content="내 서비스/프로젝트를 소개하는 간단한 원페이지 템플릿" />
-  <meta property="og:title" content="내 사이트 이름" />
-  <meta property="og:description" content="내 서비스/프로젝트를 소개하는 간단한 원페이지 템플릿" />
+  <title>행복 시니어코칭연구소 — 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다.</title>
+  <meta name="description" content="행복 시니어코칭연구소 | 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다. 임상심리사 1급 '초록샘' 원장의 시니어 전문 심리상담." />
+  <meta property="og:title" content="행복 시니어코칭연구소" />
+  <meta property="og:description" content="행복 시니어코칭연구소 | 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다. 임상심리사 1급 '초록샘' 원장의 시니어 전문 심리상담." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0ea5e9" />
   <style>
@@ -80,42 +80,51 @@
       .menu-btn{display:inline-flex}
     }
   </style>
+  <meta name="twitter:description" content="행복 시니어코칭연구소 | 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다. 임상심리사 1급 '초록샘' 원장의 시니어 전문 심리상담.">
 </head>
 <body>
   <header>
     <div class="container nav">
       <a class="brand" href="#top">
         <div class="brand__logo" aria-hidden></div>
-        <span>내 사이트 이름</span>
+        <span>sangwonlan</span>
       </a>
       <nav class="nav__links" aria-label="주요 메뉴">
-        <a href="#features">특징</a>
-        <a href="#pricing">가격</a>
-        <a href="#contact">문의</a>
-        <a class="btn btn--pri" href="#contact">지금 시작하기</a>
+        <a href="#pain">문제제기</a>
+        <a href="#values">가치</a>
+        <a href="#programs">프로그램</a>
+        <a href="#expert">전문가</a>
+        <a href="#vision">비전</a>
+        <a href="#apply">신청/정보</a>
+        <a class="btn btn--pri" href="#apply">상담 신청</a>
       </nav>
       <button class="btn menu-btn" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">메뉴</button>
     </div>
     <div id="mobileMenu" class="container" hidden>
-      <div style="display:flex;gap:12px;padding:12px 0 16px">
-        <a href="#features">특징</a>
-        <a href="#pricing">가격</a>
-        <a href="#contact">문의</a>
-        <a class="btn btn--pri" href="#contact">지금 시작하기</a>
+      <div style="display:flex;gap:12px;padding:12px 0 16px;flex-wrap:wrap">
+        <a href="#pain">문제제기</a>
+        <a href="#values">가치</a>
+        <a href="#programs">프로그램</a>
+        <a href="#expert">전문가</a>
+        <a href="#vision">비전</a>
+        <a href="#apply">신청/정보</a>
+        <a class="btn btn--pri" href="#apply">상담 신청</a>
       </div>
+    </div>
     </div>
   </header>
 
   <main id="top" class="container">
+    <!-- 1. 메인 화면 (첫인상: 신뢰와 공감) -->
     <section class="hero">
       <div class="hero__grid">
         <div>
-          <span class="tag">원페이지 템플릿</span>
-          <h1>아이디어를 오늘 바로 <br/>웹사이트로.</h1>
-          <p>아래 텍스트만 바꾸면 곧바로 배포 가능한 심플한 랜딩 페이지입니다. 브랜드명·설명·가격·연락처만 바꾸고 GitHub Pages/Netlify/Vercel에 올리세요.</p>
+          <span class="tag">시니어 전문 심리 코칭</span>
+          <h1>노년의 마음밭에 행복을 다시 심습니다</h1>
+          <p>임상심리사 1급 전문가 '초록샘'이 함께하는 전문 심리 코칭. 잃어버린 삶의 위로, 치유, 행복을 되찾아 드립니다.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn btn--pri" href="#contact">상담/문의</a>
-            <a class="btn" href="#features">기능 보기</a>
+            <a class="btn btn--pri" href="#programs">프로그램 전체 보기</a>
+            <a class="btn" href="#apply">1:1 상담 신청하기</a>
           </div>
         </div>
         <div class="card illus" aria-hidden>
@@ -124,66 +133,118 @@
       </div>
     </section>
 
-    <section id="features">
-      <h2>핵심 특징</h2>
-      <p class="lead">가볍고 빠른 정적 페이지. 모바일 최적화, 접근성 고려, 쉬운 색상 교체.</p>
+    <!-- 2. 문제 제기 (공감 유도) -->
+    <section id="pain">
+      <h2>혹시, 이런 마음이신가요?</h2>
+      <p class="lead">괜찮습니다. 그 마음은 당연한 감정입니다. '행복 시니어코칭연구소'는 그 마음을 전문적으로 진단하고 위로합니다.</p>
+      <ul>
+        <li>은퇴/퇴직 후 내 역할이 사라진 것 같아 무기력합니다.</li>
+        <li>만성질환 진단 후, 과거의 건강했던 내가 그립고 우울합니다.</li>
+        <li>자녀들에게 짐이 되는 것 같아 미안하고, 지난 삶이 후회됩니다.</li>
+        <li>배우자나 지인을 떠나보낸 상실감에서 벗어나기 힘듭니다.</li>
+      </ul>
+    </section>
+
+    <!-- 3. 핵심 가치 (솔루션) -->
+    <section id="values">
+      <h2>행복 시니어코칭연구소의 3가지 약속</h2>
+      <p class="lead">위로(Comfort) · 치유(Healing) · 행복(Happiness) — 이론 기반의 실천.</p>
       <div class="features">
         <div class="feature">
-          <strong>간편 편집</strong>
-          <p>이 파일 하나만 수정하면 끝. (index.html)</p>
+          <strong>위로 Comfort</strong>
+          <p>있는 그대로의 수용. ACT(수용전념치료)에 기반하여 만성적 상실의 마음을 전문적으로 진단하고 지지합니다.</p>
         </div>
         <div class="feature">
-          <strong>반응형 레이아웃</strong>
-          <p>데스크톱·모바일에서 자동으로 보기 좋게.</p>
+          <strong>치유 Healing</strong>
+          <p>과거와의 건강한 화해. 자아자비 명상, 미술·원예 치료로 내면의 상처를 돌봅니다.</p>
         </div>
         <div class="feature">
-          <strong>무료 호스팅 호환</strong>
-          <p>GitHub Pages, Netlify, Vercel 등과 바로 연동.</p>
+          <strong>행복 Happiness</strong>
+          <p>미래 유산의 설계. 에릭슨의 자아 통합 이론을 바탕으로 삶의 지혜를 기록하고 세대와 연결합니다.</p>
         </div>
       </div>
     </section>
 
-    <section id="pricing">
-      <h2>간단한 가격안</h2>
-      <p class="lead">필요시 삭제/수정하세요. 가격은 예시입니다.</p>
-      <div class="pricing">
-        <div class="plan">
-          <div><strong>Starter</strong></div>
-          <div class="price">₩0</div>
-          <div class="muted">기본 랜딩, 연락처</div>
-          <a class="btn" href="#contact">시작하기</a>
-        </div>
-        <div class="plan" style="border-color:rgba(14,165,233,.65)">
-          <div><strong>Pro</strong></div>
-          <div class="price">₩49,000</div>
-          <div class="muted">섹션 추가, 간단 양식</div>
-          <a class="btn btn--pri" href="#contact">상담 요청</a>
-        </div>
-        <div class="plan">
-          <div><strong>Business</strong></div>
-          <div class="price">맞춤</div>
-          <div class="muted">브랜딩/도메인/SEO</div>
-          <a class="btn" href="#contact">문의</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>문의하기</h2>
-      <p class="lead">아래로 메시지를 남기거나 메일을 보내주세요.</p>
+    <!-- 4. 전문가 소개 (신뢰) -->
+    <section id="expert">
+      <h2>누가 코칭하나요? (초록샘 원장)</h2>
       <div class="contact">
-        <form onsubmit="event.preventDefault(); alert('데모 폼입니다. 메일 링크를 사용하세요!');">
+        <div class="card illus" aria-hidden title="프로필 이미지 자리"></div>
+        <div class="card">
+          <p>저는 6년간 노인요양병원 현장에서 어르신들의 정서 지원을 담당해 온 임상심리사 '초록샘'입니다. 현장의 경험과 전문성을 바탕으로 당신의 마음 회복을 돕겠습니다.</p>
+          <ul>
+            <li>임상심리사 1급 (보건복지부)</li>
+            <li>전문상담사 2급 (한국상담학회)</li>
+            <li>사회복지사 1급 (보건복지부)</li>
+            <li>간호조무사 (보건복지부)</li>
+            <li>평생교육사 2급 (교육부)</li>
+          </ul>
+          <a class="btn" href="#apply">원장 인사말/철학 더보기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 프로그램 (구체적 상품) -->
+    <section id="programs">
+      <h2>어떤 프로그램이 준비되어 있나요?</h2>
+      <p class="lead">나의 상황에 맞게 선택하세요. 정부지원 사업과 직접 연계 가능합니다.</p>
+      <div class="pricing">
+        <div class="plan" style="border-color:rgba(14,165,233,.65)">
+          <div><strong>1:1 심층 정서 코칭</strong></div>
+          <div class="muted">마음투자지원사업 연계 · 우울/불안/상실감</div>
+          <a class="btn btn--pri" href="#apply">상담 신청</a>
+        </div>
+        <div class="plan">
+          <div><strong>내 삶의 지혜 아카이브</strong></div>
+          <div class="muted">평생교육/자아통합 · 은퇴 후 삶 설계 그룹</div>
+          <a class="btn" href="#apply">자세히 보기</a>
+        </div>
+        <div class="plan">
+          <div><strong>행복 유산 기록 워크숍</strong></div>
+          <div class="muted">지역사회/세대 통합 · 멀티미디어 유산 제작</div>
+          <a class="btn" href="#apply">문의하기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 연구소 비전 (차별점) -->
+    <section id="vision">
+      <h2>우리는 끊임없이 연구합니다</h2>
+      <div class="contact">
+        <div class="card illus" aria-hidden title="책 표지/이미지 자리"></div>
+        <div class="card">
+          <p><strong>연구소의 철학을 담은 책 《초록샘의 위로 정원: 노년의 마음밭에 위로와 치유, 행복을 다시 심다》</strong></p>
+          <p>행복 시니어코칭연구소는 단순한 상담 센터가 아닙니다. 임상심리학과 노년학의 최신 지견을 바탕으로, 시니어의 삶의 질을 향상시킬 수 있는 근거 중심(Evidence-Based) 프로그램을 개발하는 전문 연구 기관입니다. 책 출간, 논문 연구, 지역 사회 협력을 통해 건강한 노년의 행복 모델을 만들어가겠습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. 신청 및 정보 (마무리) -->
+    <section id="apply">
+      <h2>지금 바로, 당신의 마음밭에 행복을 심으세요</h2>
+      <p class="lead">[1:1 상담 신청하기] 또는 [프로그램 문의하기]로 시작하세요.</p>
+      <div class="contact">
+        <form onsubmit="event.preventDefault(); alert('데모 폼입니다. 메일/전화로 연락 부탁드립니다.');">
           <input type="text" placeholder="이름" required>
+          <input type="tel" placeholder="전화번호" required>
           <input type="email" placeholder="이메일" required>
-          <textarea placeholder="메시지" required></textarea>
-          <button class="btn btn--pri" type="submit">보내기</button>
-          <span class="muted">실제 전송은 <a href="mailto:hello@example.com">hello@example.com</a>으로 메일하세요.</span>
+          <textarea placeholder="문의 내용" required></textarea>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn--pri" type="submit">1:1 상담 신청하기</button>
+            <a class="btn" href="#programs">프로그램 전체 보기</a>
+          </div>
+          <span class="muted">실제 접수는 <a href="mailto:hello@example.com">hello@example.com</a> 또는 전화로 부탁드립니다.</span>
         </form>
         <div class="card">
-          <h3 style="margin:0 0 10px">연락처</h3>
-          <p class="muted" style="margin:0 0 6px">이메일: <a href="mailto:hello@example.com">hello@example.com</a></p>
-          <p class="muted" style="margin:0 0 6px">주소: 서울 어딘가 123</p>
-          <p class="muted" style="margin:0">영업시간: 평일 10:00–18:00</p>
+          <h3 style="margin:0 0 10px">기관 정보</h3>
+          <ul>
+            <li>연구소명: 행복 시니어코칭연구소</li>
+            <li>대표: 초록샘 (홍길동)</li>
+            <li>사업자등록번호: [XXXXX]</li>
+            <li>전화: [010-0000-0000]</li>
+            <li>주소: [세종시 OOO]</li>
+          </ul>
+          <p class="muted" style="margin:0">정부지원 바우처 제공기관 지정 마크 등은 이 영역에 배치 가능합니다.</p>
         </div>
       </div>
     </section>
@@ -192,7 +253,7 @@
   <footer>
     <div class="container">
       <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-        <span>© <span id="year"></span> 내 사이트 이름</span>
+        <span>© <span id="year"></span> sangwonlan</span>
         <a class="muted" href="#top">맨 위로 ↑</a>
       </div>
     </div>
