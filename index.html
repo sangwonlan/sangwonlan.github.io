@@ -80,6 +80,13 @@
       .nav__links{display:none}
       .menu-btn{display:inline-flex}
     }
+      /* 히어로 배경 이미지 설정 */
+    .hero.hero-bg{position:relative;padding:100px 0 60px}
+    .hero.hero-bg::before{content:"";position:absolute;inset:0;background:url("정원사진.png") center/cover no-repeat;z-index:-2}
+    .hero.hero-bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.40);z-index:-1}
+    /* 배경 사용 시 우측 일러스트 카드를 숨기고 단일 컬럼으로 */
+    .hero.hero-bg .hero__grid{grid-template-columns:1fr}
+    .hero.hero-bg .illus{display:none}
   </style>
   <meta name="twitter:description" content="행복 시니어코칭연구소 | 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다. 임상심리사 1급 '초록샘' 원장의 시니어 전문 심리상담.">
 </head>
@@ -117,7 +124,7 @@
 
   <main id="top" class="container">
     <!-- 1. 메인 화면 (첫인상: 신뢰와 공감) -->
-    <section class="hero">
+    <section class="hero hero-bg">
       <div class="hero__grid">
         <div>
           <span class="tag">시니어 전문 심리 코칭</span>
@@ -180,6 +187,8 @@
             <li>사회복지사 1급 (보건복지부)</li>
             <li>간호조무사 (보건복지부)</li>
             <li>평생교육사 2급 (교육부)</li>
+            <li>직업상담사 (산업인력공단)</li>
+            <li>요양보호사 (시지자체)</li>
           </ul>
           <a class="btn" href="#apply">원장 인사말/철학 더보기</a>
         </div>
