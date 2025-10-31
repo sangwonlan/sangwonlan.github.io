@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>내 사이트 이름 — 간단한 원페이지</title>
+  <meta name="description" content="내 서비스/프로젝트를 소개하는 간단한 원페이지 템플릿" />
+  <meta property="og:title" content="내 사이트 이름" />
+  <meta property="og:description" content="내 서비스/프로젝트를 소개하는 간단한 원페이지 템플릿" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <style>
+    :root{
+      --bg:#0b1220;           /* 배경 */
+      --card:#0f172a;         /* 카드 배경 */
+      --pri:#0ea5e9;          /* 포인트 컬러 */
+      --txt:#e2e8f0;          /* 본문 텍스트 */
+      --muted:#94a3b8;        /* 보조 텍스트 */
+      --ring:rgba(14,165,233,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:linear-gradient(180deg, #0b1220 0%, #0b1220 40%, #0d1b2a 100%);color:var(--txt);}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* 헤더 */
+    header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(148,163,184,.15)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand__logo{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 30deg, #38bdf8, #34d399, #a78bfa, #38bdf8);}
+    .nav__links{display:flex;gap:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 16px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:#0b1325;color:var(--txt);font-weight:600}
+    .btn--pri{background:var(--pri);border-color:transparent;color:#0b1220}
+    .btn:focus{outline:3px solid var(--ring)}
+    .menu-btn{display:none}
+
+    /* 히어로 */
+    .hero{padding:80px 0 40px}
+    .hero__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+    .tag{display:inline-block;background:rgba(14,165,233,.15);color:#7dd3fc;border:1px solid rgba(125,211,252,.35);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em}
+    .hero h1{font-size:44px;line-height:1.1;margin:16px 0 12px}
+    .hero p{color:var(--muted);font-size:18px;line-height:1.6;margin:0 0 20px}
+    .card{background:var(--card);border:1px solid rgba(148,163,184,.15);border-radius:20px;padding:20px}
+    .illus{aspect-ratio:4/3;border-radius:16px;background:radial-gradient(1200px 400px at 30% -20%, rgba(14,165,233,.3), transparent 50%),
+                              radial-gradient(800px 400px at 80% 30%, rgba(99,102,241,.25), transparent 50%),
+                              linear-gradient(180deg, #0c1426, #0b1220); border:1px solid rgba(148,163,184,.12);position:relative;overflow:hidden}
+    .pulse{position:absolute;inset:0;background:radial-gradient(200px 200px at var(--x,50%) var(--y,50%), rgba(14,165,233,.25), transparent 60%);mix-blend-mode:screen}
+
+    /* 섹션 공통 */
+    section{padding:56px 0}
+    h2{font-size:28px;margin:0 0 8px}
+    .lead{color:var(--muted);margin:0 0 20px}
+
+    /* 기능 */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{padding:18px;border-radius:16px;background:var(--card);border:1px solid rgba(148,163,184,.15)}
+    .feature h3{margin:10px 0 6px}
+    .feature p{margin:0;color:var(--muted)}
+
+    /* 가격 */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .plan{padding:22px;border-radius:18px;background:var(--card);border:1px solid rgba(148,163,184,.15);display:flex;flex-direction:column;gap:12px}
+    .price{font-size:34px;font-weight:800}
+    .muted{color:var(--muted)}
+
+    /* 문의 */
+    .contact{display:grid;grid-template-columns:1fr .9fr;gap:18px}
+    form{display:grid;gap:10px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:#0b1325;color:var(--txt)}
+    textarea{min-height:120px;resize:vertical}
+
+    footer{padding:28px 0;border-top:1px solid rgba(148,163,184,.15);color:var(--muted)}
+
+    /* 반응형 */
+    @media (max-width: 900px){
+      .hero__grid, .contact{grid-template-columns:1fr}
+      .features, .pricing{grid-template-columns:1fr;}
+      .nav__links{display:none}
+      .menu-btn{display:inline-flex}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="brand__logo" aria-hidden></div>
+        <span>내 사이트 이름</span>
+      </a>
+      <nav class="nav__links" aria-label="주요 메뉴">
+        <a href="#features">특징</a>
+        <a href="#pricing">가격</a>
+        <a href="#contact">문의</a>
+        <a class="btn btn--pri" href="#contact">지금 시작하기</a>
+      </nav>
+      <button class="btn menu-btn" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">메뉴</button>
+    </div>
+    <div id="mobileMenu" class="container" hidden>
+      <div style="display:flex;gap:12px;padding:12px 0 16px">
+        <a href="#features">특징</a>
+        <a href="#pricing">가격</a>
+        <a href="#contact">문의</a>
+        <a class="btn btn--pri" href="#contact">지금 시작하기</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero__grid">
+        <div>
+          <span class="tag">원페이지 템플릿</span>
+          <h1>아이디어를 오늘 바로 <br/>웹사이트로.</h1>
+          <p>아래 텍스트만 바꾸면 곧바로 배포 가능한 심플한 랜딩 페이지입니다. 브랜드명·설명·가격·연락처만 바꾸고 GitHub Pages/Netlify/Vercel에 올리세요.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn--pri" href="#contact">상담/문의</a>
+            <a class="btn" href="#features">기능 보기</a>
+          </div>
+        </div>
+        <div class="card illus" aria-hidden>
+          <div class="pulse" id="pulse"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>핵심 특징</h2>
+      <p class="lead">가볍고 빠른 정적 페이지. 모바일 최적화, 접근성 고려, 쉬운 색상 교체.</p>
+      <div class="features">
+        <div class="feature">
+          <strong>간편 편집</strong>
+          <p>이 파일 하나만 수정하면 끝. (index.html)</p>
+        </div>
+        <div class="feature">
+          <strong>반응형 레이아웃</strong>
+          <p>데스크톱·모바일에서 자동으로 보기 좋게.</p>
+        </div>
+        <div class="feature">
+          <strong>무료 호스팅 호환</strong>
+          <p>GitHub Pages, Netlify, Vercel 등과 바로 연동.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>간단한 가격안</h2>
+      <p class="lead">필요시 삭제/수정하세요. 가격은 예시입니다.</p>
+      <div class="pricing">
+        <div class="plan">
+          <div><strong>Starter</strong></div>
+          <div class="price">₩0</div>
+          <div class="muted">기본 랜딩, 연락처</div>
+          <a class="btn" href="#contact">시작하기</a>
+        </div>
+        <div class="plan" style="border-color:rgba(14,165,233,.65)">
+          <div><strong>Pro</strong></div>
+          <div class="price">₩49,000</div>
+          <div class="muted">섹션 추가, 간단 양식</div>
+          <a class="btn btn--pri" href="#contact">상담 요청</a>
+        </div>
+        <div class="plan">
+          <div><strong>Business</strong></div>
+          <div class="price">맞춤</div>
+          <div class="muted">브랜딩/도메인/SEO</div>
+          <a class="btn" href="#contact">문의</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>문의하기</h2>
+      <p class="lead">아래로 메시지를 남기거나 메일을 보내주세요.</p>
+      <div class="contact">
+        <form onsubmit="event.preventDefault(); alert('데모 폼입니다. 메일 링크를 사용하세요!');">
+          <input type="text" placeholder="이름" required>
+          <input type="email" placeholder="이메일" required>
+          <textarea placeholder="메시지" required></textarea>
+          <button class="btn btn--pri" type="submit">보내기</button>
+          <span class="muted">실제 전송은 <a href="mailto:hello@example.com">hello@example.com</a>으로 메일하세요.</span>
+        </form>
+        <div class="card">
+          <h3 style="margin:0 0 10px">연락처</h3>
+          <p class="muted" style="margin:0 0 6px">이메일: <a href="mailto:hello@example.com">hello@example.com</a></p>
+          <p class="muted" style="margin:0 0 6px">주소: 서울 어딘가 123</p>
+          <p class="muted" style="margin:0">영업시간: 평일 10:00–18:00</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+        <span>© <span id="year"></span> 내 사이트 이름</span>
+        <a class="muted" href="#top">맨 위로 ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 연도 자동 표시
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 모바일 메뉴 토글
+    const btn = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', ()=>{
+      const open = menu.hasAttribute('hidden') ? false : true;
+      if(open){ menu.setAttribute('hidden',''); btn.setAttribute('aria-expanded','false'); }
+      else{ menu.removeAttribute('hidden'); btn.setAttribute('aria-expanded','true'); }
+    });
+
+    // 히어로 일러스트 마우스 반응
+    const pulse = document.getElementById('pulse');
+    pulse?.parentElement?.addEventListener('pointermove', (e)=>{
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      pulse.style.setProperty('--x', x+'%');
+      pulse.style.setProperty('--y', y+'%');
+    });
+  </script>
+</body>
+</html>
