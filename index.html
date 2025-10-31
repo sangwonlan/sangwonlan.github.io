@@ -28,7 +28,7 @@
     header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(148,163,184,.15)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .brand__logo{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 30deg, #38bdf8, #34d399, #a78bfa, #38bdf8);}
+    .brand__logo{width:36px;height:36px;border-radius:8px;display:block;object-fit:contain;mix-blend-mode:normal;background:none}
     .nav__links{display:flex;gap:18px}
     .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 16px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:#0b1325;color:var(--txt);font-weight:600}
     .btn--pri{background:var(--pri);border-color:transparent;color:#0b1220}
@@ -94,7 +94,7 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#top">
-        <div class="brand__logo" aria-hidden></div>
+        <img class="brand__logo" src="assets/logo.png" alt="행복한 초록샘 로고" />
         <span>행복 시니어코칭연구소</span>
       </a>
       <nav class="nav__links" aria-label="주요 메뉴">
