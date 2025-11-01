@@ -59,7 +59,7 @@
     .hero h2{font-size:34px;line-height:1.2;margin:10px 0 12px}
     .hero p{color:var(--muted);font-size:18px;line-height:1.6;margin:0 0 20px}
 
-    /* 히어로: 단일 배경 이미지(정원사진.png 한 장만 사용) */
+    /* 히어로: 단일 배경 이미지 */
     .hero.hero-bg{position:relative;padding:120px 0 80px}
     .hero.hero-bg::before{
       content:""; position:absolute; inset:0;
@@ -86,7 +86,6 @@
     /* 프로그램(3열) */
     .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .plan{padding:22px;border-radius:18px;background:var(--card);border:1px solid rgba(148,163,184,.15);display:flex;flex-direction:column;gap:12px}
-    .price{font-size:34px;font-weight:800}
     .muted{color:var(--muted)}
 
     /* 연락/문의(그리드) */
@@ -202,10 +201,10 @@
       </div>
     </section>
 
-    <!-- 4. 전문가 소개 -->
+    <!-- 4. 전문가 소개 (기관 정보 패널 제거됨: 인사말만 유지) -->
     <section id="expert">
       <h2>누가 코칭하나요? (초록샘 원장)</h2>
-      <div class="contact">
+      <div class="contact" style="grid-template-columns:1fr">
         <div class="panel" style="background:#0b1325;color:var(--txt);border-color:rgba(148,163,184,.15)">
           <h3 style="margin-top:0">인사말</h3>
           <p>저는 다년간 노인요양병원 현장에서 어르신들의 정서 지원을 담당해 온 임상심리사 '초록샘'입니다. 현장의 경험과 전문성을 바탕으로 당신의 마음 회복을 돕겠습니다.</p>
@@ -219,17 +218,6 @@
             <li>요양보호사 (지자체)</li>
           </ul>
           <a class="btn" href="#apply">원장 인사말/철학 더보기</a>
-        </div>
-        <div class="panel">
-          <h3 style="margin-top:0">기관 정보</h3>
-          <ul>
-            <li>연구소명: 행복 시니어코칭연구소</li>
-            <li>대표: 초록샘 (홍길동)</li>
-            <li>사업자등록번호: [XXXXX]</li>
-            <li>전화: [010-0000-0000]</li>
-            <li>주소: [세종시 OOO]</li>
-          </ul>
-          <p class="muted" style="margin:0">정부지원 바우처 제공기관 지정 마크 등은 이 영역에 배치 가능합니다.</p>
         </div>
       </div>
     </section>
@@ -266,7 +254,7 @@
       </div>
     </section>
 
-    <!-- 7. 신청 및 정보 -->
+    <!-- 7. 신청 및 정보 (하단 기관 정보만 유지) -->
     <section id="apply">
       <h2>지금 바로, 당신의 마음밭에 행복을 심으세요</h2>
       <p class="lead">[1:1 상담 신청하기] 또는 [프로그램 문의하기]로 시작하세요.</p>
