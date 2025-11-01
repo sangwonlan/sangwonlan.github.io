@@ -80,13 +80,38 @@
       .nav__links{display:none}
       .menu-btn{display:inline-flex}
     }
-      /* 히어로 배경 이미지 설정 */
-    .hero.hero-bg{position:relative;padding:100px 0 60px}
-    .hero.hero-bg::before{content:"";position:absolute;inset:0;background:url("정원사진.png") center/cover no-repeat;z-index:-2}
-    .hero.hero-bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.40);z-index:-1}
-    /* 배경 사용 시 우측 일러스트 카드를 숨기고 단일 컬럼으로 */
-    .hero.hero-bg .hero__grid{grid-template-columns:1fr}
-    .hero.hero-bg .illus{display:none}
+      /* 히어로 비디오 배경 */
+    .hero.hero-video{position:relative;padding:0}
+    .hero.hero-video .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+    .hero.hero-video::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:-1}
+    .hero.hero-video .hero__grid{grid-template-columns:1fr;min-height:70vh;align-items:center;padding:120px 20px 80px;max-width:1100px;margin:0 auto}
+    .hero.hero-video .illus{display:none}
+    @media (prefers-reduced-motion: reduce){ .hero.hero-video .hero__video{display:none} }
+    @media (prefers-reduced-data: reduce){ .hero.hero-video .hero__video{display:none} }
+      /* 라이트 섹션(히어로 아래 패널) */
+    :root{--panel-bg:#f8fafc;--panel-txt:#0b1220;--panel-muted:#475569}
+    .notice-section{padding:0 0 40px}
+    .notice-wrap{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;margin-top:-60px}
+    @media(min-width:900px){.notice-wrap{grid-template-columns:1fr 320px}}
+    .panel{background:var(--panel-bg);color:var(--panel-txt);border-radius:16px;border:1px solid rgba(0,0,0,.08);box-shadow:0 10px 30px rgba(0,0,0,.25);padding:20px}
+    .panel .muted{color:var(--panel-muted)}
+    .notice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .notice-item{display:flex;gap:12px;align-items:center;background:#ffffff;border-radius:12px;padding:14px;border:1px solid rgba(0,0,0,.06)}
+    .notice-ico{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#a78bfa,#60a5fa);color:#fff;font-weight:800}
+    .callout{background:linear-gradient(135deg,#9333ea,#3b82f6);color:#fff;border-radius:16px;padding:18px;box-shadow:0 15px 30px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:10px}
+    .callout .big{font-size:28px;font-weight:900}
+    .btn--ghost{background:transparent;border-color:rgba(255,255,255,.7);color:#fff}
+      /* 컨테이너 안에 있어도 히어로를 화면 양옆까지 꽉 차게 */
+    main.container .hero.hero-video, main.container .hero.hero-bg{left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw}
+    body{overflow-x:hidden}
+      /* 풀블리드 갤러리(정적 스택) */
+    .full-bleed{position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw}
+    .gallery-stack{display:block}
+    .gallery-stack img{display:block;width:100%;height:auto}
+    .gallery-stack img+img{margin-top:8px}
+.slider-fade img:first-child{opacity:1}}
+      /* 헤더 우측 메뉴 제거 */
+    .nav__links, .menu-btn, #mobileMenu{display:none !important}
   </style>
   <meta name="twitter:description" content="행복 시니어코칭연구소 | 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다. 임상심리사 1급 '초록샘' 원장의 시니어 전문 심리상담.">
 </head>
@@ -123,7 +148,11 @@
 
   <main id="top" class="container">
     <!-- 1. 메인 화면 (첫인상: 신뢰와 공감) -->
-    <section class="hero hero-bg">
+    <section class="hero hero-video">
+      <video class="hero__video" autoplay muted playsinline loop poster="정원사진.png">
+        <source src="assets/hero.webm" type="video/webm" />
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
       <div class="hero__grid">
         <div>
           <span class="tag">시니어 전문 심리 코칭</span>
@@ -138,6 +167,32 @@
         <div class="card illus" aria-hidden>
           <div class="pulse" id="pulse"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- 히어로 하단 갤러리(정적 이미지 연속) -->
+    <section id="hero-gallery" class="full-bleed gallery-stack" aria-label="정원 갤러리">
+      <img src="정원사진2.png" alt="정원 사진 2">
+      <img src="정원사진3.png" alt="정원 사진 3">
+    </section>
+
+    <!-- Notice/Callout 패널 (히어로 아래 오버랩) -->
+    <section id="notice" class="notice-section">
+      <div class="container notice-wrap">
+        <div class="panel">
+          <div class="notice-grid">
+            <div class="notice-item"><div class="notice-ico">🏛️</div><div><strong>기관소개</strong><div class="muted">연구소 비전과 철학</div></div></div>
+            <div class="notice-item"><div class="notice-ico">📘</div><div><strong>프로그램 안내</strong><div class="muted">1:1/그룹 코칭</div></div></div>
+            <div class="notice-item"><div class="notice-ico">📝</div><div><strong>상담 절차</strong><div class="muted">예약·평가·코칭</div></div></div>
+            <div class="notice-item"><div class="notice-ico">📂</div><div><strong>자료실</strong><div class="muted">가이드·소식</div></div></div>
+          </div>
+        </div>
+        <aside class="callout">
+          <div class="muted small">상담문의</div>
+          <div class="big">010-0000-0000</div>
+          <div class="muted small">E. hello@example.com</div>
+          <a class="btn btn--ghost" href="#apply">오시는 길</a>
+        </aside>
       </div>
     </section>
 
