@@ -17,10 +17,23 @@
       --txt:#e2e8f0;          /* 본문 텍스트 */
       --muted:#94a3b8;        /* 보조 텍스트 */
       --ring:rgba(14,165,233,.35);
+
+      /* ===== 상단 영역 전체 배경 높이 조절 ===== */
+      --heroH: 70vh;  /* 히어로 영역(첫 번째 사진) 높이 */
+      --secH: 60vh;   /* 두/세 번째 사진 각각의 높이 */
+      --hero-dim: .40; /* 히어로 어둡기 */
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:linear-gradient(180deg, #0b1220 0%, #0b1220 40%, #0d1b2a 100%);color:var(--txt);}
+    body{
+      margin:0;
+      position:relative;          /* 배경 레이어 기준 */
+      overflow-x:hidden;          /* 풀블리드로 인한 가로 스크롤 방지 */
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+      background:linear-gradient(180deg, #0b1220 0%, #0b1220 40%, #0d1b2a 100%);
+      color:var(--txt);
+    }
     a{color:inherit;text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
@@ -80,15 +93,41 @@
       .nav__links{display:none}
       .menu-btn{display:inline-flex}
     }
-      /* 히어로 비디오 배경 */
-    .hero.hero-video{position:relative;padding:0}
-    .hero.hero-video .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-    .hero.hero-video::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:-1}
-    .hero.hero-video .hero__grid{grid-template-columns:1fr;min-height:70vh;align-items:center;padding:120px 20px 80px;max-width:1100px;margin:0 auto}
-    .hero.hero-video .illus{display:none}
-    @media (prefers-reduced-motion: reduce){ .hero.hero-video .hero__video{display:none} }
-    @media (prefers-reduced-data: reduce){ .hero.hero-video .hero__video{display:none} }
-      /* 라이트 섹션(히어로 아래 패널) */
+
+    /* ===== 히어로: 이미지 배경 + 풀블리드 ===== */
+    .hero.hero-bg{position:relative;padding:0}
+    .hero.hero-bg::before{
+      content:"";position:absolute;inset:0;
+      background:url("정원사진.png") center/cover no-repeat; /* 첫 번째 사진 */
+      z-index:-2;
+    }
+    .hero.hero-bg::after{
+      content:"";position:absolute;inset:0;background:rgba(0,0,0,var(--hero-dim));z-index:-1;
+    }
+    /* 컨테이너여도 좌우 꽉 차게 */
+    main.container .hero.hero-bg{
+      left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw
+    }
+    .hero.hero-bg .hero__grid{
+      grid-template-columns:1fr;min-height:var(--heroH);align-items:center;
+      padding:120px 20px 80px;max-width:1100px;margin:0 auto
+    }
+
+    /* ===== 상단 전체 배경: 두/세 번째 사진을 세로로 이어붙이기 ===== */
+    .page-bg-stack{
+      position:absolute;top:0;left:50%;right:50%;
+      margin-left:-50vw;margin-right:-50vw;width:100vw;
+      height:calc(var(--heroH) + var(--secH) * 2);  /* 총 높이 */
+      z-index:-3; pointer-events:none;
+      background:
+        url("정원사진2.png") center calc(var(--heroH)) / cover no-repeat,
+        url("정원사진3.png") center calc(var(--heroH) + var(--secH)) / cover no-repeat;
+    }
+
+    /* 헤더 우측 메뉴 제거(요청사항) */
+    .nav__links, .menu-btn, #mobileMenu{display:none !important}
+
+    /* 라이트 섹션(히어로 아래 패널) */
     :root{--panel-bg:#f8fafc;--panel-txt:#0b1220;--panel-muted:#475569}
     .notice-section{padding:0 0 40px}
     .notice-wrap{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;margin-top:-60px}
@@ -101,21 +140,13 @@
     .callout{background:linear-gradient(135deg,#9333ea,#3b82f6);color:#fff;border-radius:16px;padding:18px;box-shadow:0 15px 30px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:10px}
     .callout .big{font-size:28px;font-weight:900}
     .btn--ghost{background:transparent;border-color:rgba(255,255,255,.7);color:#fff}
-      /* 컨테이너 안에 있어도 히어로를 화면 양옆까지 꽉 차게 */
-    main.container .hero.hero-video, main.container .hero.hero-bg{left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw}
-    body{overflow-x:hidden}
-      /* 풀블리드 갤러리(정적 스택) */
-    .full-bleed{position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw}
-    .gallery-stack{display:block}
-    .gallery-stack img{display:block;width:100%;height:auto}
-    .gallery-stack img+img{margin-top:8px}
-.slider-fade img:first-child{opacity:1}}
-      /* 헤더 우측 메뉴 제거 */
-    .nav__links, .menu-btn, #mobileMenu{display:none !important}
   </style>
   <meta name="twitter:description" content="행복 시니어코칭연구소 | 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다. 임상심리사 1급 '초록샘' 원장의 시니어 전문 심리상담.">
 </head>
 <body>
+  <!-- 세로로 이어붙인 배경 레이어(두/세 번째 사진) -->
+  <div class="page-bg-stack" aria-hidden="true"></div>
+
   <header>
     <div class="container nav">
       <a class="brand" href="#top">
@@ -148,11 +179,7 @@
 
   <main id="top" class="container">
     <!-- 1. 메인 화면 (첫인상: 신뢰와 공감) -->
-    <section class="hero hero-video">
-      <video class="hero__video" autoplay muted playsinline loop poster="정원사진.png">
-        <source src="assets/hero.webm" type="video/webm" />
-        <source src="assets/hero.mp4" type="video/mp4" />
-      </video>
+    <section class="hero hero-bg">
       <div class="hero__grid">
         <div>
           <span class="tag">시니어 전문 심리 코칭</span>
@@ -168,12 +195,6 @@
           <div class="pulse" id="pulse"></div>
         </div>
       </div>
-    </section>
-
-    <!-- 히어로 하단 갤러리(정적 이미지 연속) -->
-    <section id="hero-gallery" class="full-bleed gallery-stack" aria-label="정원 갤러리">
-      <img src="정원사진2.png" alt="정원 사진 2">
-      <img src="정원사진3.png" alt="정원 사진 3">
     </section>
 
     <!-- Notice/Callout 패널 (히어로 아래 오버랩) -->
@@ -328,7 +349,7 @@
     // 연도 자동 표시
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 모바일 메뉴 토글
+    // 모바일 메뉴 토글 (현재 CSS로 숨김 상태이지만 남겨둠)
     const btn = document.getElementById('menuToggle');
     const menu = document.getElementById('mobileMenu');
     btn?.addEventListener('click', ()=>{
