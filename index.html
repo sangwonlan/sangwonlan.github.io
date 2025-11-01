@@ -104,6 +104,18 @@
       /* 컨테이너 안에 있어도 히어로를 화면 양옆까지 꽉 차게 */
     main.container .hero.hero-video, main.container .hero.hero-bg{left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw}
     body{overflow-x:hidden}
+      /* 풀블리드 갤러리 슬라이더 (히어로 아래) */
+    .full-bleed{position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw}
+    .slider-fade{position:relative;height:56vh;min-height:360px;overflow:hidden}
+    .slider-fade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 18s infinite}
+    .slider-fade img:nth-child(1){animation-delay:0s}
+    .slider-fade img:nth-child(2){animation-delay:6s}
+    .slider-fade img:nth-child(3){animation-delay:12s}
+    @keyframes fade{0%,5%{opacity:0}10%,30%{opacity:1}35%,100%{opacity:0}}
+    .slider-fade::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}
+    @media (prefers-reduced-motion: reduce){.slider-fade img{animation:none;opacity:0}.slider-fade img:first-child{opacity:1}}
+      /* 헤더 우측 메뉴 제거 */
+    .nav__links, .menu-btn, #mobileMenu{display:none !important}
   </style>
   <meta name="twitter:description" content="행복 시니어코칭연구소 | 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다. 임상심리사 1급 '초록샘' 원장의 시니어 전문 심리상담.">
 </head>
@@ -159,6 +171,15 @@
         <div class="card illus" aria-hidden>
           <div class="pulse" id="pulse"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- 히어로 하단 갤러리(정원 사진 순환) -->
+    <section id="hero-gallery" class="full-bleed" aria-label="정원 갤러리">
+      <div class="slider-fade">
+        <img src="정원사진.png" alt="정원 사진 1">
+        <img src="정원사진2.png" alt="정원 사진 2">
+        <img src="정원사진3.png" alt="정원 사진 3">
       </div>
     </section>
 
