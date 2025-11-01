@@ -84,7 +84,7 @@
     .hero.hero-video{position:relative;padding:0}
     .hero.hero-video .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
     .hero.hero-video::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:-1}
-    .hero.hero-video .hero__grid{grid-template-columns:1fr;min-height:70vh;align-items:center;padding:120px 0 80px}
+    .hero.hero-video .hero__grid{grid-template-columns:1fr;min-height:70vh;align-items:center;padding:120px 20px 80px;max-width:1100px;margin:0 auto}
     .hero.hero-video .illus{display:none}
     @media (prefers-reduced-motion: reduce){ .hero.hero-video .hero__video{display:none} }
     @media (prefers-reduced-data: reduce){ .hero.hero-video .hero__video{display:none} }
@@ -101,6 +101,9 @@
     .callout{background:linear-gradient(135deg,#9333ea,#3b82f6);color:#fff;border-radius:16px;padding:18px;box-shadow:0 15px 30px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:10px}
     .callout .big{font-size:28px;font-weight:900}
     .btn--ghost{background:transparent;border-color:rgba(255,255,255,.7);color:#fff}
+      /* 컨테이너 안에 있어도 히어로를 화면 양옆까지 꽉 차게 */
+    main.container .hero.hero-video, main.container .hero.hero-bg{left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw}
+    body{overflow-x:hidden}
   </style>
   <meta name="twitter:description" content="행복 시니어코칭연구소 | 노년의 마음밭에 위로와 치유, 행복을 다시 심습니다. 임상심리사 1급 '초록샘' 원장의 시니어 전문 심리상담.">
 </head>
